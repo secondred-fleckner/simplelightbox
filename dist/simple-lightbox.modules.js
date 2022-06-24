@@ -70,6 +70,7 @@ var SimpleLightbox = /*#__PURE__*/function () {
       alertErrorMessage: 'Image not found, next image will be loaded',
       additionalHtml: false,
       history: true,
+      dontUpdateLocationHash: false,
       throttleInterval: 0,
       doubleTapZoom: 2,
       maxZoom: 10,
@@ -1182,6 +1183,10 @@ var SimpleLightbox = /*#__PURE__*/function () {
   }, {
     key: "updateHash",
     value: function updateHash() {
+      if (this.options.dontUpdateLocationHash === true) {
+        return;
+      }
+
       var newHash = 'pid=' + (this.currentImageIndex + 1),
           newURL = window.location.href.split('#')[0] + '#' + newHash;
       this.hashReseted = false;
@@ -1206,6 +1211,10 @@ var SimpleLightbox = /*#__PURE__*/function () {
   }, {
     key: "resetHash",
     value: function resetHash() {
+      if (this.options.dontUpdateLocationHash === true) {
+        return;
+      }
+
       this.hashReseted = true;
 
       if (this.urlChangedOnce) {

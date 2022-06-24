@@ -37,6 +37,7 @@ class SimpleLightbox {
         alertErrorMessage: 'Image not found, next image will be loaded',
         additionalHtml: false,
         history: true,
+        dontUpdateLocationHash: false,
         throttleInterval: 0,
         doubleTapZoom: 2,
         maxZoom: 10,
@@ -1091,6 +1092,10 @@ class SimpleLightbox {
     }
 
     updateHash() {
+        if (this.options.dontUpdateLocationHash === true) {
+            return;
+        }
+
         let newHash = 'pid=' + (this.currentImageIndex + 1),
             newURL = window.location.href.split('#')[0] + '#' + newHash;
 
@@ -1114,6 +1119,10 @@ class SimpleLightbox {
     }
 
     resetHash() {
+        if (this.options.dontUpdateLocationHash === true) {
+            return;
+        }
+
         this.hashReseted = true;
         if(this.urlChangedOnce) {
             history.back();

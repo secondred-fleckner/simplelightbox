@@ -109,6 +109,7 @@ For a complete example just look at the demo folder.
 | alertErrorMessage | 'Image not found, next image will be loaded' | string | The message displayed if image was not found |
 | additionalHtml | false | string | Additional HTML showing inside every image. Usefull for watermark etc. If false nothing is added |
 | history | true | bool | Enable history back closes lightbox instead of reloading the page |
+| dontUpdateLocationHash | false | bool | If true disables the hash updates and 'history'-option entirely |
 | throttleInterval | 0 | int | Time to wait between slides |
 | doubleTapZoom | 2 | int | Zoom level when double tapping on an image |
 | maxZoom | 10 | int | Maximum zoom level on pinching |
